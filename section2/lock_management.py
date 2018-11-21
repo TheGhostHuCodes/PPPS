@@ -9,17 +9,15 @@ SHARED_RESOURCE_LOCK = threading.Lock()
 def increment_with_lock() -> None:
     global SHARED_RESOURCE_WITH_LOCK
     for _ in range(COUNT):
-        SHARED_RESOURCE_LOCK.acquire()
-        SHARED_RESOURCE_WITH_LOCK += 1
-        SHARED_RESOURCE_LOCK.release()
+        with SHARED_RESOURCE_LOCK:
+            SHARED_RESOURCE_WITH_LOCK += 1
 
 
 def decrement_with_lock() -> None:
     global SHARED_RESOURCE_WITH_LOCK
     for _ in range(COUNT):
-        SHARED_RESOURCE_LOCK.acquire()
-        SHARED_RESOURCE_WITH_LOCK -= 1
-        SHARED_RESOURCE_LOCK.release()
+        with SHARED_RESOURCE_LOCK:
+            SHARED_RESOURCE_WITH_LOCK -= 1
 
 
 def increment_without_lock() -> None:
