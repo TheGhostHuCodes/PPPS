@@ -7,7 +7,7 @@ CONDITION = Condition()
 
 class consumer(Thread):
     def __init__(self):
-        Thread.__init__(self)
+        super().__init__()
 
     def consume(self):
         global CONDITION
@@ -30,7 +30,7 @@ class consumer(Thread):
 
 class producer(Thread):
     def __init__(self):
-        Thread.__init__(self)
+        super().__init__()
 
     def produce(self):
         global CONDITION

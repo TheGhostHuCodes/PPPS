@@ -6,7 +6,7 @@ EXIT_FLAG = False
 
 class MyThread(threading.Thread):
     def __init__(self, thread_id: int, name: str, delay: int):
-        threading.Thread.__init__(self)
+        super().__init__()
         self.thread_id = thread_id
         self.name = name
         self.delay = delay

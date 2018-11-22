@@ -9,7 +9,7 @@ EVENT = Event()
 
 class consumer(Thread):
     def __init__(self, items: List[int], event: Event):
-        Thread.__init__(self)
+        super().__init__()
         self.items = items
         self.event = event
 
@@ -28,7 +28,7 @@ class consumer(Thread):
 
 class producer(Thread):
     def __init__(self, items: List[int], event: Event):
-        Thread.__init__(self)
+        super().__init__()
         self.items = items
         self.event = event
 
